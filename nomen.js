@@ -1,6 +1,3 @@
-/**
-*Created by atm on 17/4/15.
-*/
 function generateNick(adjCount, nameType, charCount, adjectiveList, nameList){
     adjCount=typeof adjCount !== 'undefined' ? adjCount : 2;
     charCount=typeof charCount !== 'undefined' ? charCount : 24;
@@ -12,11 +9,9 @@ function generateNick(adjCount, nameType, charCount, adjectiveList, nameList){
     }
     function create_nickname(){
         var element_id = (new Date().getTime()*20)%444366429;
-//    var name_id = Math.ceil(element_id % 1600)+(75*Math.random());
         var name_id = Math.ceil(element_id % 1600);
         var adj_list = [];
         for (var i=0; i<adjCount; i++){
-//        adj_list.push([Math.ceil((element_id % 500)+25*Math.random())]);
             adj_list.push([Math.ceil((element_id % 275)+250*Math.random())]);
         }
         var unique_name="";
