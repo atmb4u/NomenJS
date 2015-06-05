@@ -2,12 +2,45 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>NomenJS by atmb4u</title>
+    <title>NomenJS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" rel="stylesheet">
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/jquery/jquery.splitflap.js"></script>
+    <script src="https://cdn.rawgit.com/atmb4u/NomenJS/master/nomen.min.js"></script>
+    <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+    <script>
+        (function ($) {
+            function generate_nickname(){
+                var nick = generateNick(1, 'title');
+                $('.empty-splitflap').splitFlap({
+                            text: nick,
+                            speed: 500,
+                            speedVariation: 3,
+                            charWidth: 25,
+                            charHeight: 50
+                        })
+                $('.empty-splitflap').fadeIn();
+                $("#text-nick").text(nick);
+            };
+            $(document).ready(function () {
+                generate_nickname();
+                $("#update-nick").click(function(){
+                    generate_nickname();
+                });
+            });
+        })(jQuery);
+    </script>
   </head>
   <body>
     <section class="page-header">
@@ -16,42 +49,41 @@
       <a href="https://github.com/atmb4u/NomenJS" class="btn">View on GitHub</a>
       <a href="https://github.com/atmb4u/NomenJS/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/atmb4u/NomenJS/tarball/master" class="btn">Download .tar.gz</a>
+      <br>
+      <a aria-label="Follow @atmb4u on GitHub" data-count-aria-label="# followers on GitHub" data-count-api="/users/atmb4u#followers" data-count-href="/ntkme/followers" href="https://github.com/atmb4u" class="github-button">Follow @atmb4u</a>
+      <a aria-label="Star atmb4u/NomenJS on GitHub" data-count-aria-label="# stargazers on GitHub" data-count-api="/repos/atmb4u/NomenJS#stargazers_count" data-count-href="atmb4u/NomenJS/stargazers" data-icon="octicon-star" href="https://github.com/atmb4u/NomenJS" class="github-button">Star</a>
+            <div style="display:table-cell;vertical-align:middle;">
     </section>
 
     <section class="main-content">
-      <p><code>### Welcome to GitHub Pages.</code>
-<code>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</code></p>
-
-<pre><code>````$ cd your_repo_root/repo_name````
-````$ git fetch origin````
-````$ git checkout gh-pages````
-</code></pre>
-
-<p><code>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</code></p>
-
-<p><code>### Designer Templates</code>
-<code>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</code></p>
-
-<p><code>### Rather Drive Stick?</code>
-<code>If you prefer to not use the automatic generator, push a branch named `gh-pages` to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</code></p>
-
-<p><code>### Authors and Contributors</code>
-<code>You can @mention a GitHub username to generate a link to their profile. The resulting `&lt;a&gt;` element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (@defunkt), PJ Hyett (@pjhyett), and Tom Preston-Werner (@mojombo) founded GitHub.</code></p>
-
-<p><code>### Support or Contact</code>
-<code>Having trouble with Pages? Check out the documentation at https://help.github.com/pages or contact support@github.com and we’ll help you sort it out.</code></p>
-
-<hr>
-
+          <div style="margin-left:auto;margin-right:auto;">
+              <div class="empty-splitflap"></div>
+           <h3><span id="text-nick" class="label label-default"></span></h3>
+           <br>
+           (Select and Ctrl + C to copy)
+          <a class="btn btn-group-lg btn-lg btn-success pull-right" id="update-nick">Generate One More</a>
+          <br><br>
+          <hr>
+          </div>      
+          <br>
+      </div>
+      <div class="clearfix"></div>
+      <pre><p>
+1. Download and include nomen.min.js in the page.
+2. In script,
+      var funkyName = generateNick();
+3. Use funkyName anywhere you what.
+      </p></pre>
+<h4>Options</h4>
+<pre><p>
+generateNick(count, type, firstList, secondList)
+count - number of adjectives(prefixes) per name
+      </p></pre>
       <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/atmb4u/NomenJS">NomenJS</a> is maintained by <a href="https://github.com/atmb4u">atmb4u</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+        <hr>
+        <p class="centered">Created by <a href="https://twitter.com/atmb4u">atmb4u</a> with ♥ at <a href="https://vibeapp.co">Vibe</a> - 2015</p>
       </footer>
-
-    </section>
-
-  
+    </section>  
   </body>
 </html>
 
